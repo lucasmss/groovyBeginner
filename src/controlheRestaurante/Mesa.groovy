@@ -2,19 +2,22 @@ package controlheRestaurante
 
 class Mesa {
 
-  adicionarPedido (){
+  def mesa = [:];
 
-  }
 
-  removerPedido(){
-
-  }
-
-  consultarMesa(){
-
-  }
-
-  fecharMesa(){
-
-  }
+//  adicionarPedido (){
+//
+//  }
+//
+//  removerPedido(){
+//
+//  }
+//
+//  consultarMesa(){
+//
+//  }
+//
+//  fecharMesa(){
+//
+//  }
 }
