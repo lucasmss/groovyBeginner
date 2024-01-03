@@ -3,9 +3,9 @@ package controlheRestaurante
 class Mesa {
 
   def numeroMesa;
-  def pedidosDaMesa;
+  Cardapio pedidosDaMesa;
 
-  Mesa(numeroMesa, pedidosDaMesa) {
+  Mesa(numeroMesa, Cardapio pedidosDaMesa) {
     this.numeroMesa = numeroMesa
     this.pedidosDaMesa = pedidosDaMesa
   }
@@ -18,7 +18,6 @@ class Mesa {
 //  }
 //
 //  consultarMesa(){
-//
 //  }
 //
 //  fecharMesa(){
@@ -28,10 +27,17 @@ class Mesa {
     return numeroMesa
   }
 
-  def getPedidosDaMesa() {
+  void setNumeroMesa(numeroMesa) {
+    this.numeroMesa = numeroMesa
+  }
+
+  Cardapio getPedidosDaMesa() {
     return pedidosDaMesa
   }
 
+  void setPedidosDaMesa(Cardapio pedidosDaMesa) {
+    this.pedidosDaMesa = pedidosDaMesa
+  }
 
   @Override
   public String toString() {
