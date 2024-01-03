@@ -1,20 +1,22 @@
 package controlheRestaurante
 
+import controlheRestaurante.enums.TipoCardapio
+
 class Cardapio {
 
-    def itemTipo;
+    TipoCardapio itemTipo;
     def itemCodigo;
     def itemNome;
     def itemPreco;
 
-    Cardapio(itemTipo, itemCodigo, itemNome, itemPreco) {
-      this.itemTipo = itemTipo
-      this.itemCodigo = itemCodigo
-      this.itemNome = itemNome
-      this.itemPreco = itemPreco
-    }
+  Cardapio(TipoCardapio itemTipo, itemCodigo, itemNome, itemPreco) {
+    this.itemTipo = itemTipo
+    this.itemCodigo = itemCodigo
+    this.itemNome = itemNome
+    this.itemPreco = itemPreco
+  }
 
-    def listarCardapio(){
+  def listarCardapio(){
 
 
     }
@@ -23,15 +25,15 @@ class Cardapio {
 
     }
 
-    def getItemTipo() {
-      return itemTipo
-    }
+  TipoCardapio getItemTipo() {
+    return itemTipo
+  }
 
-    void setItemTipo(itemTipo) {
-      this.itemTipo = itemTipo
-    }
+  void setItemTipo(TipoCardapio itemTipo) {
+    this.itemTipo = itemTipo
+  }
 
-    def getItemCodigo() {
+  def getItemCodigo() {
       return itemCodigo
     }
 
