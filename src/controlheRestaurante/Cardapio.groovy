@@ -4,10 +4,13 @@ import controlheRestaurante.enums.TipoCardapio
 
 class Cardapio {
 
-    TipoCardapio itemTipo;
-    def itemCodigo;
-    def itemNome;
-    def itemPreco;
+  TipoCardapio itemTipo;
+  def itemCodigo;
+  def itemNome;
+  def itemPreco;
+
+  Cardapio() {
+  }
 
   Cardapio(TipoCardapio itemTipo, itemCodigo, itemNome, itemPreco) {
     this.itemTipo = itemTipo
@@ -16,14 +19,19 @@ class Cardapio {
     this.itemPreco = itemPreco
   }
 
+  def cardapio = [:];
+
   def listarCardapio(){
 
+    println(cardapio)
 
-    }
+  }
 
-    def adicionarItem(tipo, codigo, nome, preco){
+  def adicionarItem(codigo, item){
 
-    }
+    cardapio.put(codigo, item)
+
+  }
 
   TipoCardapio getItemTipo() {
     return itemTipo
@@ -34,38 +42,35 @@ class Cardapio {
   }
 
   def getItemCodigo() {
-      return itemCodigo
-    }
+    return itemCodigo
+  }
 
-    void setItemCodigo(itemCodigo) {
-      this.itemCodigo = itemCodigo
-    }
+  void setItemCodigo(itemCodigo) {
+    this.itemCodigo = itemCodigo
+  }
 
-    def getItemNome() {
-      return itemNome
-    }
+  def getItemNome() {
+    return itemNome
+  }
 
-    void setItemNome(itemNome) {
-      this.itemNome = itemNome
-    }
+  void setItemNome(itemNome) {
+    this.itemNome = itemNome
+  }
 
-    def getItemPreco() {
-      return itemPreco
-    }
+  def getItemPreco() {
+    return itemPreco
+  }
 
-    void setItemPreco(itemPreco) {
-      this.itemPreco = itemPreco
-    }
+  void setItemPreco(itemPreco) {
+    this.itemPreco = itemPreco
+  }
 
 
   @Override
   public String toString() {
 
-    return "item[" +
-        "tipo: " + itemTipo +
-        ", codigo: " + itemCodigo +
-        ", nome: " + itemNome +
+    return "[nome: " + itemNome +
         ", preco: " + itemPreco +
-        ']';
+        ']\n';
   }
 }
