@@ -9,21 +9,30 @@ static void main(String[] args) {
   Mesa mesa = new Mesa();
 
   def cadastrarMesas;
+  def cadastrarIten;
+  def opcao;
 
-  //popular o cardapio com alguns valores ai iniciar o sistema;
+  //Popular o cardapio com alguns valores ao iniciar o sistema;
   Cardapio item1 = new Cardapio(TipoCardapio.BEBIDA, 1, "Café", 2.50);
   Cardapio item2 = new Cardapio(TipoCardapio.SOBREMESA, 12, "Bolo", 5.50);
   Cardapio item3 = new Cardapio(TipoCardapio.REFEICAO, 11, "Pizza", 10.50);
 
-  cardapio.adicionarItem(item1.itemCodigo,item1);
+  //chama o metodo para popular o cardapio;
+  cardapio.adicionarItem(item1.itemCodigo, item1);
   cardapio.adicionarItem(item2.itemCodigo, item2);
   cardapio.adicionarItem(item3.itemCodigo, item3);
 
-  println("Bem vindo ao Restaurante Comida Caseira");
-  println("Deseja adicionar algo no cardapio ? Sim (1) Não (2)");
-  def cadastrarIten = entrada.nextInt();
+  //chama o metodo para popular mesas
+  mesa.cadastrarMesa(1);
+  mesa.cadastrarMesa(2);
+  mesa.cadastrarMesa(3);
 
-  while (cadastrarIten == 1){
+  //inicio do sistema
+  println("Bem vindo ao Restaurante Comida Caseira - Vamos Iniciar o Sistema");
+  println("Deseja adicionar algo no cardapio ? Sim (1) Não (2)");
+  cadastrarIten = entrada.nextInt();
+
+  while (cadastrarIten == 1) {
     println("O que deseja adicionar: Bebida - (1), Refeição - (2), Sobremesa - (3) ");
     def itemCardapio = entrada.nextInt();
 
@@ -41,10 +50,10 @@ static void main(String[] args) {
     if (itemCardapio == 1) {
       Cardapio itemAdd = new Cardapio(TipoCardapio.BEBIDA, itemCodigo, itemNome, itemPreco)
       cardapio.adicionarItem(itemCodigo, itemAdd)
-    }else if (itemCardapio == 2){
+    } else if (itemCardapio == 2) {
       Cardapio itemAdd = new Cardapio(TipoCardapio.REFEICAO, itemCodigo, itemNome, itemPreco)
       cardapio.adicionarItem(itemCodigo, itemAdd)
-    }else if (itemCardapio == 3){
+    } else if (itemCardapio == 3) {
       Cardapio itemAdd = new Cardapio(TipoCardapio.SOBREMESA, itemCodigo, itemNome, itemPreco)
       cardapio.adicionarItem(itemCodigo, itemAdd)
     }
@@ -54,14 +63,10 @@ static void main(String[] args) {
     println()
   }
 
-  mesa.cadastrarMesa(1);
-  mesa.cadastrarMesa(2);
-  mesa.cadastrarMesa(3);
-
-  println("Temos 3 mesas. Precisa adicionar mais ? Sim (1) Não (2)")
+  println("Adicionar mais Mesas ? Sim (1) Não (2)")
   cadastrarMesas = entrada.nextInt();
 
-  while (cadastrarMesas == 1){
+  while (cadastrarMesas == 1) {
     println("Digite o Número da nova mesa");
     def mesaNova = entrada.nextInt();
 
@@ -75,17 +80,21 @@ static void main(String[] args) {
   }
 
   println(mesa.listarMesas())
+  println("Estamos Porntos para Funcionar - Vamos Utilizar o Sistema");
 
-  println("Selecione uma Opção: 1 - Listar Cardapio, 2 - Cadastrar Item no Cardapio, 3 - Cadastrar Mesa. 4 - Sair ")
-  def opcao = entrada.nextInt()
+  do {
+    println("Selecione uma Opção: 1 - Listar Cardapio, 2 - Adicionar pedido a mesa, 3 - Consultar mesa. 4 - Sair ")
+    opcao = entrada.nextInt()
 
-  if (opcao == 1){
-    cardapio.listarCardapio();
-  }else if(opcao == 4){
-    println("saiu")
-  }
+    switch (opcao){
+      case 1:
+        cardapio.listarCardapio();
+        break;
 
+      case 2:
+        break;
+    }
 
-
+  }while (opcao != 4)
 
 }
