@@ -2,33 +2,39 @@ package controlheRestaurante
 
 class Mesa {
 
-  def numeroMesa;
+  def mesas = [:];
   Cardapio pedidosDaMesa;
 
-  Mesa(numeroMesa, Cardapio pedidosDaMesa) {
-    this.numeroMesa = numeroMesa
-    this.pedidosDaMesa = pedidosDaMesa
-  }
-//  adicionarPedido (){
-//
-//  }
-//
-//  removerPedido(){
-//
-//  }
-//
-//  consultarMesa(){
-//  }
-//
-//  fecharMesa(){
-//
-//  }
-  def getNumeroMesa() {
-    return numeroMesa
+  Mesa() {
   }
 
-  void setNumeroMesa(numeroMesa) {
-    this.numeroMesa = numeroMesa
+  Mesa(Cardapio pedidosDaMesa) {
+    this.pedidosDaMesa = pedidosDaMesa
+  }
+  def adicionarPedido (){
+
+  }
+
+  def removerPedido(){
+
+  }
+
+  def consultarMesa(){
+
+  }
+
+  def fecharMesa(){
+
+  }
+  def cadastrarMesa(mesa){
+
+    mesas.put(mesa, null)
+
+  }
+  def listarMesas(){
+
+    println(mesas)
+
   }
 
   Cardapio getPedidosDaMesa() {
@@ -41,9 +47,8 @@ class Mesa {
 
   @Override
   public String toString() {
-    return "Mesa{" +
-        "Mesa: " + numeroMesa +
+    return "Mesa[" +
         ", pedidos: " + pedidosDaMesa +
-        '}';
+        ']';
   }
 }

@@ -6,6 +6,7 @@ static void main(String[] args) {
 
   Scanner entrada = new Scanner(System.in);
   Cardapio cardapio = new Cardapio();
+  Mesa mesa = new Mesa();
 
   def cadastrarMesas;
 
@@ -23,7 +24,6 @@ static void main(String[] args) {
   def cadastrarIten = entrada.nextInt();
 
   while (cadastrarIten == 1){
-    println("Cardapio atual: " + cardapio.listarCardapio());
     println("O que deseja adicionar: Bebida - (1), Refeição - (2), Sobremesa - (3) ");
     def itemCardapio = entrada.nextInt();
 
@@ -49,46 +49,32 @@ static void main(String[] args) {
       cardapio.adicionarItem(itemCodigo, itemAdd)
     }
 
-    println("NOVO: " + cardapio.listarCardapio())
-
     println("Cadastrar mais itens ? Sim (1) ou Não (2)");
     cadastrarIten = entrada.nextInt();
     println()
   }
 
-  def mesas = [];
-
-  Mesa mesa1 = new Mesa(1, null);
-  Mesa mesa2 = new Mesa(2, null);
-  Mesa mesa3 = new Mesa(3, null);
-
-  mesas.add(mesa1);
-  mesas.add(mesa2);
-  mesas.add(mesa3);
+  mesa.cadastrarMesa(1);
+  mesa.cadastrarMesa(2);
+  mesa.cadastrarMesa(3);
 
   println("Temos 3 mesas. Precisa adicionar mais ? Sim (1) Não (2)")
   cadastrarMesas = entrada.nextInt();
 
   while (cadastrarMesas == 1){
-    println("Número de mesas atual: " + mesas);
     println("Digite o Número da nova mesa");
     def mesaNova = entrada.nextInt();
 
     println("mesa nova: " + mesaNova);
 
-    Mesa addMesa = new Mesa(mesaNova, null)
-
-    mesas.add(addMesa)
-
-    println("NOVO: " + mesas)
+    mesa.cadastrarMesa(mesaNova)
 
     println("Cadastrar mais mesas ? Sim (1) ou Não (2)");
     cadastrarMesas = entrada.nextInt();
     println()
   }
 
-  println(mesas)
-  println("")
+  println(mesa.listarMesas())
 
   println("Selecione uma Opção: 1 - Listar Cardapio, 2 - Cadastrar Item no Cardapio, 3 - Cadastrar Mesa. 4 - Sair ")
   def opcao = entrada.nextInt()
