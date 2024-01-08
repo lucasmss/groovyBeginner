@@ -11,6 +11,8 @@ static void main(String[] args) {
   def cadastrarMesas;
   def cadastrarIten;
   def opcao;
+  def mesaNova;
+  def itemCodigo;
 
   //Popular o cardapio com alguns valores ao iniciar o sistema;
   Cardapio item1 = new Cardapio(TipoCardapio.BEBIDA, 1, "Café", 2.50);
@@ -37,7 +39,7 @@ static void main(String[] args) {
     def itemCardapio = entrada.nextInt();
 
     println("Digite o código do item - código precisa ser diferente dos existentes: ");
-    def itemCodigo = entrada.nextInt();
+    itemCodigo = entrada.nextInt();
 
     println("Digite o nome do novo item: ");
     def itemNome = entrada.next();
@@ -66,9 +68,10 @@ static void main(String[] args) {
   println("Adicionar mais Mesas ? Sim (1) Não (2)")
   cadastrarMesas = entrada.nextInt();
 
+
   while (cadastrarMesas == 1) {
     println("Digite o Número da nova mesa");
-    def mesaNova = entrada.nextInt();
+    mesaNova = entrada.nextInt();
 
     println("mesa nova: " + mesaNova);
 
@@ -80,10 +83,10 @@ static void main(String[] args) {
   }
 
   println(mesa.listarMesas())
-  println("Estamos Porntos para Funcionar - Vamos Utilizar o Sistema");
+  println("Estamos Prontos para Funcionar - Vamos Utilizar o Sistema");
 
   do {
-    println("Selecione uma Opção: 1 - Listar Cardapio, 2 - Adicionar pedido a mesa, 3 - Consultar mesa. 4 - Sair ")
+    println("Selecione uma Opção: 1 - Listar Cardapio, 2 - Listar Mesas, 3 - Adicionar pedido a mesa, 4 - Consultar mesa. 5 - Sair ")
     opcao = entrada.nextInt()
 
     switch (opcao){
@@ -92,9 +95,22 @@ static void main(String[] args) {
         break;
 
       case 2:
+        mesa.listarMesas();
         break;
+      case 3:
+        println("Digite o número da mesa para adicionar o pedido")
+        mesaNova = entrada.nextInt()
+        println("Digite o código do pedido")
+        itemCodigo = entrada.nextInt();
+        def item = cardapio.buscarPedido(itemCodigo)
+        mesa.adicionarPedido(mesaNova, item)
+        break
+      case 4:
+        println("Digite o número da mesa para consultar")
+        mesaNova = entrada.nextInt()
+        mesa.consultarMesa(mesaNova)
     }
 
-  }while (opcao != 4)
+  }while (opcao != 5)
 
 }

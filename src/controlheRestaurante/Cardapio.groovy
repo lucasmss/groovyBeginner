@@ -27,6 +27,10 @@ class Cardapio {
 
   }
 
+  def buscarPedido(numeroitem){
+    cardapio.get(numeroitem)
+  }
+
   def adicionarItem(codigo, item){
 
     cardapio.put(codigo, item)

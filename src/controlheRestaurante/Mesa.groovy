@@ -11,16 +11,18 @@ class Mesa {
   Mesa(Cardapio pedidosDaMesa) {
     this.pedidosDaMesa = pedidosDaMesa
   }
-  def adicionarPedido (){
+  def adicionarPedido (mesa, pedido){
+    mesas.put(mesa, pedido)
 
+    println(mesas.get(mesa))
   }
 
   def removerPedido(){
 
   }
 
-  def consultarMesa(){
-
+  def consultarMesa(mesa){
+    println(mesas.get(mesa))
   }
 
   def fecharMesa(){
