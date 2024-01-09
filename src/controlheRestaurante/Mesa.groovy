@@ -2,7 +2,8 @@ package controlheRestaurante
 
 class Mesa {
 
-  def mesas = [:];
+  def mesaId = [:];
+  def pedidosMesas = [];
   Cardapio pedidosDaMesa;
 
   Mesa() {
@@ -12,9 +13,12 @@ class Mesa {
     this.pedidosDaMesa = pedidosDaMesa
   }
   def adicionarPedido (mesa, pedido){
-    mesas.put(mesa, pedido)
 
-    println(mesas.get(mesa))
+    pedidosMesas.add(pedido)
+    println(pedidosMesas)
+
+    mesaId.put(mesa, pedidosMesas)
+    print(mesaId.get(mesa))
   }
 
   def removerPedido(){
@@ -22,7 +26,7 @@ class Mesa {
   }
 
   def consultarMesa(mesa){
-    println(mesas.get(mesa))
+    println(mesaId.get(mesa))
   }
 
   def fecharMesa(){
@@ -30,12 +34,14 @@ class Mesa {
   }
   def cadastrarMesa(mesa){
 
-    mesas.put(mesa, null)
+    mesaId.put(mesa, null)
+
+    print(mesaId)
 
   }
   def listarMesas(){
 
-    println(mesas)
+    println(mesaId)
 
   }
 

@@ -8,6 +8,7 @@ class Cardapio {
   def itemCodigo;
   def itemNome;
   def itemPreco;
+  def cardapio = [:];
 
   Cardapio() {
   }
@@ -18,8 +19,6 @@ class Cardapio {
     this.itemNome = itemNome
     this.itemPreco = itemPreco
   }
-
-  def cardapio = [:];
 
   def listarCardapio(){
 
