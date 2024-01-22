@@ -3,7 +3,7 @@ package controlheRestaurante
 class Mesa {
 
   def mesaId = [:];
-  def pedidosMesas = [];
+  def pedidosMesa = [];
   Cardapio pedidosDaMesa;
 
   Mesa() {
@@ -12,13 +12,25 @@ class Mesa {
   Mesa(Cardapio pedidosDaMesa) {
     this.pedidosDaMesa = pedidosDaMesa
   }
-  def adicionarPedido (mesa, pedido){
 
-    pedidosMesas.add(pedido)
-    println(pedidosMesas)
+  def adicionarPedido(mesa, pedido) {
+    // Check if the mesaId contains the mesa key
+    if (!mesaId.containsKey(mesa)) {
+      // If the mesa is not in mesaId, add it with an empty list
+      mesaId.put(mesa, [])
+    }
 
-    mesaId.put(mesa, pedidosMesas)
-    print(mesaId.get(mesa))
+    println("Constrain" + !mesaId.containsKey(mesa))
+    // Get the existing list of pedidos for the mesa
+     pedidosMesa = mesaId.get(mesa)
+
+    pedidosMesa == null ? pedidosMesa = [] : pedidosMesa.add(pedido)
+
+    // Update mesaId with the modified list of pedidos for the mesa
+    mesaId.put(mesa, pedidosMesa)
+
+    // Print the pedidosMesas for debugging
+    println(pedidosMesa)
   }
 
   def removerPedido(){
